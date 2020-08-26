@@ -4,6 +4,6 @@ This is CLI application for access Github API using golang
 #### Some Feature :
  - [x] Clone
  - [ ] Fork
- - [x] Search
+ - [ ] Search
  - [x] Checkout
  - [ ] Remote 
