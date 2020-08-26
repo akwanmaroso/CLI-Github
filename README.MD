@@ -1,6 +1,7 @@
 # CLI Github
-Building Github CLI using golang
-### Feature
+This is CLI application for access Github API using golang
+
+#### Some Feature :
  - [x] Clone
  - [ ] Fork
  - [x] Search
