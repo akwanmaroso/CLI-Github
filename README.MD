@@ -7,5 +7,5 @@ This is CLI application for access Github API using golang
  - [x] Search
  - [x] Checkout
  - [x] Docs
- - [ ] Remote 
- - [ ] Pull Request
+ - [x] Remote 
+ - [x] Pull Request

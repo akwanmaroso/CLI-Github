@@ -37,7 +37,7 @@ func ForkRepository(repository string) error {
 	}
 	return GithubAPI().Call("fork", map[string]string{
 		"owner": values[0],
-		"repo": values[1],
+		"repo":  values[1],
 	}, nil)
 }
 
