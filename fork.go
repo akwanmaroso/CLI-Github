@@ -19,7 +19,7 @@ type ForkResponse struct {
 
 var ForkCmd = &cobra.Command{
 	Use:   "fork",
-	Short: "fork a GitHub repository",
+	Short: "Fork a GitHub repository",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) <= 0 {
 			log.Fatalln("You must supply a repository")

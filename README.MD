@@ -23,4 +23,4 @@ __clio__ is command line interface application for access Github API using golan
  - [x] Docs
  - [x] Remote 
  - [x] Pull Request
- - [ ] Issue
+ - [x] Issue
