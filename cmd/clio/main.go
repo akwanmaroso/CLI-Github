@@ -24,6 +24,7 @@ func init() {
 	rootCmd.AddCommand(clio.CloneCmd)
 	rootCmd.AddCommand(clio.ForkCmd)
 	rootCmd.AddCommand(clio.PullRequestCmd)
+	rootCmd.AddCommand(clio.IssueCmd)
 	viper.SetDefault("location", os.Getenv("HOME"))
 	viper.SetConfigName("clio")
 	viper.AddConfigPath(".")
