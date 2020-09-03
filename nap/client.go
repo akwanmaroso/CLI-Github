@@ -26,7 +26,7 @@ func (c *Client) ProcessRequest(baseURL string, res *RestResource, params map[st
 	endpoint := strings.TrimLeft(res.RenderEndpoint(params), "/")
 	trimmedBaseURL := strings.TrimRight(baseURL, "/")
 	url := trimmedBaseURL + "/" + endpoint
-	req := buildClientRequest(res.Method, url, nil)
+	req := buildClientRequest(res.Method, url, payload)
 	if c.AuthInfo != nil {
 		req.Header.Add("Authorization", c.AuthInfo.AuthorizationHeader())
 	}

@@ -13,7 +13,7 @@ func TestAPI_Call(t *testing.T) {
 	})
 	res := NewResource("/", "GET", router)
 	api.AddResource("get", res)
-	if err := api.Call("get", nil); err != nil {
+	if err := api.Call("get", nil, nil); err != nil {
 		t.Fail()
 	}
 

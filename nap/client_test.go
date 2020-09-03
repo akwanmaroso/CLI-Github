@@ -12,7 +12,7 @@ func TestClient_ProcessRequest(t *testing.T) {
 		return nil
 	})
 	res := NewResource("/get", "GET", router)
-	if err := client.ProcessRequest("https://httpbin.org", res, nil); err != nil {
+	if err := client.ProcessRequest("https://httpbin.org", res, nil, nil); err != nil {
 		t.Fail()
 	}
 }
