@@ -1,7 +1,21 @@
-# CLI Github
-This is CLI application for access Github API using golang
+# Overview
+__clio__ is command line interface application for access Github API using golang.
 
-#### Some Feature :
+# How to use ?
+1. create clio.yaml
+2. Add this code
+	```
+	---
+	location: /home/akwanmaroso/Documents // path to your file
+	token: mysecrettoken // token from github
+	```
+3. Run :
+	```
+	go install ./...
+	clio --help
+	```
+
+# Some Feature
  - [x] Clone
  - [x] Fork
  - [x] Search
@@ -9,3 +23,4 @@ This is CLI application for access Github API using golang
  - [x] Docs
  - [x] Remote 
  - [x] Pull Request
+ - [ ] Issue
