@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/akwanmaroso/devops-go/nap"
+	nap "github.com/akwanmaroso/devops-go/pork/nap"
 )
 
 var api = nap.NewAPI("https://httpbin.org")
@@ -25,7 +25,7 @@ func main() {
 		return
 	}
 	resource := os.Args[1]
-	if err := api.Call(resource, nil); err != nil {
+	if err := api.Call(resource, nil, nil); err != nil {
 		log.Fatalln(err)
 	}
 }
