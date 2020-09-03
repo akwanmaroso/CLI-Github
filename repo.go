@@ -11,18 +11,18 @@ import (
 
 type GHRepo struct {
 	RepoDir string
-	Owner string
+	Owner   string
 	project string
-	repo *git.Repository
+	repo    *git.Repository
 }
 
-func NewGHRepo(repository string) (*GHRepo, error)  {
+func NewGHRepo(repository string) (*GHRepo, error) {
 	values := strings.Split(repository, "/")
 	if len(values) != 2 {
 		return nil, fmt.Errorf("repository must be in format owner/project")
 	}
 	return &GHRepo{
-		Owner: values[0],
+		Owner:   values[0],
 		project: values[1],
 	}, nil
 }
@@ -66,7 +66,7 @@ func (g *GHRepo) Checkout(ref string, create bool) error {
 }
 
 func (g *GHRepo) AddUpstream(repository *GHRepo) error {
-	_,err := g.repo.CreateRemote(&config.RemoteConfig{
+	_, err := g.repo.CreateRemote(&config.RemoteConfig{
 		Name: "upstream",
 		URLs: []string{repository.RepositoryURL()},
 	})
