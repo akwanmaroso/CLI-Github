@@ -6,6 +6,6 @@ This is CLI application for access Github API using golang
  - [x] Fork
  - [x] Search
  - [x] Checkout
- - [ ] Docs
+ - [x] Docs
  - [ ] Remote 
  - [ ] Pull Request
