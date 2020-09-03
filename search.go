@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/akwanmaroso/devops-go/pork/nap"
+	"github.com/akwanmaroso/devops-go/clio/nap"
 	"github.com/spf13/cobra"
 )
 

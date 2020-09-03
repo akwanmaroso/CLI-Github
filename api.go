@@ -1,7 +1,7 @@
 package pork
 
 import (
-	"github.com/akwanmaroso/devops-go/pork/nap"
+	"github.com/akwanmaroso/devops-go/clio/nap"
 	"github.com/spf13/viper"
 )
 

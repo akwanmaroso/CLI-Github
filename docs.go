@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/akwanmaroso/devops-go/pork/nap"
+	"github.com/akwanmaroso/devops-go/clio/nap"
 	"github.com/spf13/cobra"
 	"io/ioutil"
 	"log"

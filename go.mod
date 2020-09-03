@@ -1,4 +1,4 @@
-module github.com/akwanmaroso/devops-go/pork
+module github.com/akwanmaroso/devops-go/clio
 
 go 1.14
 

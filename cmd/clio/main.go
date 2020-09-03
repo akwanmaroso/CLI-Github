@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	pork "github.com/akwanmaroso/devops-go/pork"
+	clio "github.com/akwanmaroso/devops-go/clio"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"os"
@@ -16,16 +16,16 @@ func main() {
 
 func init() {
 	rootCmd = &cobra.Command{
-		Use: "pork",
+		Use: "clio",
 		Short: "Project Forking Tool for Github",
 	}
-	rootCmd.AddCommand(pork.SearchCmd)
-	rootCmd.AddCommand(pork.DocsCmd)
-	rootCmd.AddCommand(pork.CloneCmd)
-	rootCmd.AddCommand(pork.ForkCmd)
-	rootCmd.AddCommand(pork.PullRequestCmd)
+	rootCmd.AddCommand(clio.SearchCmd)
+	rootCmd.AddCommand(clio.DocsCmd)
+	rootCmd.AddCommand(clio.CloneCmd)
+	rootCmd.AddCommand(clio.ForkCmd)
+	rootCmd.AddCommand(clio.PullRequestCmd)
 	viper.SetDefault("location", os.Getenv("HOME"))
-	viper.SetConfigName("pork")
+	viper.SetConfigName("clio")
 	viper.AddConfigPath(".")
 	if err := viper.ReadInConfig(); err != nil {
 		fmt.Println("No configuration file found")
