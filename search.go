@@ -3,16 +3,17 @@ package pork
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/akwanmaroso/devops-go/pork/nap"
-	"github.com/spf13/cobra"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"strings"
+
+	"github.com/akwanmaroso/devops-go/pork/nap"
+	"github.com/spf13/cobra"
 )
 
 type SearchResponse struct {
-	Result []*SearchResult `json:"result"`
+	Results []*SearchResult `json:"items"`
 }
 
 type SearchResult struct {
@@ -20,31 +21,30 @@ type SearchResult struct {
 }
 
 var SearchCmd = &cobra.Command{
-	Use: "search",
-	Short: "search for github repository by keyword",
+	Use:   "search",
+	Short: "search for GitHub repositories by keyword",
 	Run: func(cmd *cobra.Command, args []string) {
-		if err := SearchByKeyword; err != nil {
+		if err := SearchByKeyword(args); err != nil {
 			log.Fatalln("Search Failed:", err)
 		}
 	},
 }
 
-func SearchByKeyword(keyword []string) error {
+func SearchByKeyword(keywords []string) error {
 	return GithubAPI().Call("search", map[string]string{
-		"query": strings.Join(keyword, "+"),
-	})
+		"query": strings.Join(keywords, "+"),
+	}, nil)
 }
 
 func SearchSuccess(resp *http.Response) error {
 	defer resp.Body.Close()
-
 	content, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return err
 	}
 	respContent := SearchResponse{}
 	json.Unmarshal(content, &respContent)
-	for _, item := range respContent.Result {
+	for _, item := range respContent.Results {
 		fmt.Println(item.FullName)
 	}
 	return nil
@@ -61,4 +61,3 @@ func GetSearchResource() *nap.RestResource {
 	search := nap.NewResource("/search/repositories?q={{.query}}", "GET", searchRouter)
 	return search
 }
-
