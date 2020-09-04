@@ -1,10 +1,15 @@
-package pork
+package clio
 
-import "testing"
+import (
+	"github.com/akwanmaroso/devops-go/clio/nap"
+	"github.com/spf13/viper"
+	"testing"
+)
 
 func TestSearchByKeyword(t *testing.T) {
-	repositoryList := SearchByKeyword([]string{"one", "two", "three"})
-	if repositoryList[0] != "myrepository" {
+	token := viper.GetString("token")
+	GithubAPI().SetAuth(nap.NewAuthToken(token))
+	if err := SearchByKeyword([]string{"topic:go"}); err != nil {
 		t.Fail()
 	}
 }

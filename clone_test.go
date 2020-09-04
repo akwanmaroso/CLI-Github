@@ -1,9 +1,15 @@
-package pork
+package clio
 
-import "testing"
+import (
+	"github.com/akwanmaroso/devops-go/clio/nap"
+	"github.com/spf13/viper"
+	"testing"
+)
 
 func TestCloneRepository(t *testing.T) {
-	if err := CloneRepository("myrepository", "", false); err != nil {
+	token := viper.GetString("token")
+	GithubAPI().SetAuth(nap.NewAuthToken(token))
+	if err := CloneRepository("avelino/awesome-go", "master", false); err != nil {
 		t.Fail()
 	}
 }
