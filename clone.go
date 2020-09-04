@@ -2,13 +2,14 @@ package clio
 
 import (
 	"fmt"
+	"log"
+
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"log"
 )
 
 var CloneCmd = &cobra.Command{
-	Use: "clone",
+	Use:   "clone",
 	Short: "clone repository from Github",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) <= 0 {

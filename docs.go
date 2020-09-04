@@ -4,12 +4,13 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/akwanmaroso/devops-go/clio/nap"
-	"github.com/spf13/cobra"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"strings"
+
+	"github.com/akwanmaroso/devops-go/clio/nap"
+	"github.com/spf13/cobra"
 )
 
 type ReadmeResponse struct {
@@ -17,7 +18,7 @@ type ReadmeResponse struct {
 }
 
 var DocsCmd = &cobra.Command{
-	Use: "docs",
+	Use:   "docs",
 	Short: "read the documentation for a repository",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) <= 0 {
@@ -32,7 +33,7 @@ var DocsCmd = &cobra.Command{
 func GetRepositoryReadme(repository string) error {
 	values := strings.Split(repository, "/")
 	return GithubAPI().Call("docs", map[string]string{
-		"owner": values[0],
+		"owner":   values[0],
 		"project": values[1],
 	}, nil)
 }

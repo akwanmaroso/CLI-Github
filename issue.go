@@ -3,22 +3,23 @@ package clio
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/akwanmaroso/devops-go/clio/nap"
-	"github.com/spf13/cobra"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"strings"
+
+	"github.com/akwanmaroso/devops-go/clio/nap"
+	"github.com/spf13/cobra"
 )
 
 var (
-	issueTitle string
+	issueTitle   string
 	issueMessage string
 )
 
 type IssuePayload struct {
 	Title string `json:"title"`
-	Body string `json:"body"`
+	Body  string `json:"body"`
 }
 
 type IssueResponse struct {
@@ -26,7 +27,7 @@ type IssueResponse struct {
 }
 
 var IssueCmd = &cobra.Command{
-	Use: "issue",
+	Use:   "issue",
 	Short: "create issue",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) <= 0 {
@@ -45,11 +46,11 @@ func CreateIssue(repository string) error {
 	}
 	payload := &IssuePayload{
 		Title: issueTitle,
-		Body: issueMessage,
+		Body:  issueMessage,
 	}
 
 	return GithubAPI().Call("issue", map[string]string{
-		"owner": values[0],
+		"owner":   values[0],
 		"project": values[1],
 	}, payload)
 }
@@ -82,4 +83,3 @@ func init() {
 	IssueCmd.Flags().StringVarP(&issueTitle, "title", "t", "Basic create issue", "title issue")
 	IssueCmd.Flags().StringVarP(&issueMessage, "message", "m", "", "message issue")
 }
-
