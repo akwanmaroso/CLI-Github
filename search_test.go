@@ -1,10 +1,13 @@
-package pork
+package clio
 
-import "testing"
+import (
+	"fmt"
+	"github.com/akwanmaroso/devops-go/clio/nap"
+	"github.com/spf13/viper"
+	"os"
+	"testing"
+)
 
 func TestSearchByKeyword(t *testing.T) {
-	repositoryList := SearchByKeyword([]string{"one", "two", "three"})
-	if repositoryList[0] != "myrepository" {
-		t.Fail()
-	}
+
 }
