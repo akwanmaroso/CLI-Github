@@ -17,7 +17,7 @@ func main() {
 func init() {
 	rootCmd = &cobra.Command{
 		Use: "clio",
-		Short: "Project Forking Tool for Github",
+		Short: "DevOps Tool for Github",
 	}
 	rootCmd.AddCommand(clio.SearchCmd)
 	rootCmd.AddCommand(clio.DocsCmd)
