@@ -80,7 +80,6 @@ func GetRepositoryResource() *nap.RestResource {
 	router.RegisterFunc(201, CreateRepositorySuccess)
 	router.DefaultRouter = RepositoryDefaultRouter
 	resource := nap.NewResource("/user/repos", "POST", router)
-	fmt.Println(resource)
 	return resource
 }
 
