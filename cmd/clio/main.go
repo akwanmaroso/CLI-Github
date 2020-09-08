@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"os"
+
 	clio "github.com/akwanmaroso/devops-go/clio"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"os"
 )
 
 var rootCmd *cobra.Command
@@ -16,7 +17,7 @@ func main() {
 
 func init() {
 	rootCmd = &cobra.Command{
-		Use: "clio",
+		Use:   "clio",
 		Short: "DevOps Tool for Github",
 	}
 	rootCmd.AddCommand(clio.SearchCmd)
@@ -25,6 +26,7 @@ func init() {
 	rootCmd.AddCommand(clio.ForkCmd)
 	rootCmd.AddCommand(clio.PullRequestCmd)
 	rootCmd.AddCommand(clio.IssueCmd)
+	rootCmd.AddCommand(clio.RepositoryCmd)
 	viper.SetDefault("location", os.Getenv("HOME"))
 	viper.SetConfigName("clio")
 	viper.AddConfigPath(".")
@@ -33,4 +35,3 @@ func init() {
 	}
 	viper.SetDefault("location", os.Getenv("HOME"))
 }
-
